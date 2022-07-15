@@ -407,7 +407,7 @@ void ConvertNum_Test(string a1, string b1, string c1, string d1) {
 	cout << c1 << " [10] " << "= " << konversi << " [16] " << endl;
 	cout << "\n";
 
-	// Dari heksadesial ke basis apa saja.
+	// Dari heksadesimal ke basis apa saja.
 	transform(d1.begin(), d1.end(), d1.begin(), ::toupper);
 	konversi = ConvertNum(d1, 16, 2);
 	cout << d1 << " [16] " << "= " << konversi << " [2] " << endl;
