@@ -190,10 +190,10 @@ void kali(int* array1, int* array2, int baris1, int kolom1, int baris2, int kolo
 	// Proses perkalian.
 	int temp = 0;
 	for (i = 0; i < baris1; i++) {
-		for (j = 0; j < baris1; j++) {
+		for (j = 0; j < kolom2; j++) {
 			temp = 0;
 			
-			for (k = 0; k < kolom2; k++) {
+			for (k = 0; k < baris2; k++) {
 				temp += temp1[i][k] * temp2[k][j];
 			}
 			
