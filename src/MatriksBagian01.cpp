@@ -1,4 +1,4 @@
-/* Program Operasi Dua Matriks oleh AFP.
+/* Program Operasi Penjumlahan dan Perkalian Dua Matriks oleh AFP.
  * Dibuat pada tanggal 18/07/2022, ditulis menggunakan C++. 
  */
 
