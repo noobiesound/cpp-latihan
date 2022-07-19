@@ -121,7 +121,7 @@ void printArray(string* array, int baris, int kolom) {
 	cout << "\n";
 }
 
-// Function untuk mencari deteerminan matriks berordo 2x2.
+// Function untuk mencari determinan matriks berordo 2x2.
 int det(int input[2][2]) {
 
 	// Untuk ordo 2x2, rumus determinannya = ad - bc.
@@ -130,7 +130,7 @@ int det(int input[2][2]) {
 	
 }
 
-// Function untuk mencari deteerminan matriks berordo 3x3.
+// Function untuk mencari determinan matriks berordo 3x3.
 int det(int input[3][3]) {
 	
 	int i, j, k, l;
