@@ -87,7 +87,6 @@ void header(string msg) {
 
 // Function untuk mencetak array bertipe data integer.
 void printArray(int* array, int baris, int kolom) {
-	
 	int k = 0;
 	
 	for (int i = 0; i < baris; i++) {
@@ -101,13 +100,11 @@ void printArray(int* array, int baris, int kolom) {
 		cout << "|\n";
 	}
 	
-	cout << "\n";
-		
+	cout << "\n";	
 }
 
 // Function untuk mencetak array bertipe data string.
 void printArray(string* array, int baris, int kolom) {
-	
 	int k = 0;
 	
 	for (int i = 0; i < baris; i++) {
@@ -122,7 +119,6 @@ void printArray(string* array, int baris, int kolom) {
 	}
 	
 	cout << "\n";
-		
 }
 
 // Function untuk mencari deteerminan matriks berordo 2x2.
@@ -138,61 +134,59 @@ int det(int input[2][2]) {
 int det(int input[3][3]) {
 	
 	int i, j, k, l;
-    int hasil = 0;   
-    int hasil1 = 0;
-    int hasil2 = 0;
-    int temp = 1;
-    i = 0;
-    k = 0;
+    	int hasil = 0;   
+    	int hasil1 = 0;
+    	int hasil2 = 0;
+    	int temp = 1;
+    	i = 0;
+    	k = 0;
     
-    // Untuk ordo 3x3, di sini digunakanlah aturan Sarrus.
-    for (i = 0; i < 3; i++) {
+    	// Untuk ordo 3x3, di sini digunakanlah aturan Sarrus.
+    	for (i = 0; i < 3; i++) {
     
-        j = 0;
-        temp = 1;
-        l = k;
+		j = 0;
+		temp = 1;
+		l = k;
     
-        for (j = 0; j < 3; j++) {
-            if (l > 2) {
-            	l = 0;
-            }
+		for (j = 0; j < 3; j++) {
+		    if (l > 2) {
+			l = 0;
+		    }
+
+		    temp *= input[j][l];
+		    l++;
+		}
+
+		k++;
+		hasil1 += temp;
     
-            temp *= input[j][l];
-            l++;
-        }
+    	}
     
-        k++;
-        hasil1 += temp;
+    	k = 2;
     
-    }
+    	for (i = 0; i < 3; i++) {
     
-    k = 2;
+		j = 0;
+		temp = 1;
+		l = k;
     
-    for (i = 0; i < 3; i++) {
-    
-        j = 0;
-        temp = 1;
-        l = k;
-    
-        for (j = 0; j < 3; j++) {
-            if (l < 0) {
-                l = 2;
-            }
-    
-            temp *= input[j][l];
-            l--;
-        }
+		for (j = 0; j < 3; j++) {
+		    if (l < 0) {
+			l = 2;
+		    }
+
+		    temp *= input[j][l];
+		    l--;
+		}
     
         k--;
         hasil2 += temp;
     
-    }
-    
-    hasil = hasil1 - hasil2;
-    return hasil;
-
-    return 0;
-    
+    	}
+	
+	hasil = hasil1 - hasil2;
+	return hasil;
+	
 }
 
 // Function untuk mencari invers matriks berordo 2x2.
@@ -241,47 +235,42 @@ void invers(int input[3][3], string output[3][3]) {
 	
 	// Mencari elemen matriks minornya.
 	int KofIndex = 0;
-    int eleKof[36];
+	int eleKof[36];
 
-    for (i = 0; i < 3; i++) {
-        for (j = 0; j < 3; j++) {
-            for (k = 0; k < 3; k++) {
-                for (l = 0; l < 3; l++) {
+	for (i = 0; i < 3; i++) {
+		for (j = 0; j < 3; j++) {
+			for (k = 0; k < 3; k++) {
+		    		for (l = 0; l < 3; l++) {
 
-                    if ((k == i) || (l == j)) {
-                        continue;
-                    } else {
-                        eleKof[KofIndex] = input[k][l];
-                        KofIndex++;
-                    }
+					if ((k == i) || (l == j)) {
+						continue;
+					} else {
+						eleKof[KofIndex] = input[k][l];
+						KofIndex++;
+					}
 
-                }
-
-            }
-
-        }
-
-    }
+		    		}
+			}
+	    	}
+	}
 	
 	// Mencari matriks kofaktor.
 	int arrayKof[3][3];
-    KofIndex = 0;
+    	KofIndex = 0;
 
 	for (i = 0; i < 3; i++) {
-        for (j = 0; j < 3; j++) {
-            arrayKof[i][j] = pow(-1, (i + j)) * ((eleKof[KofIndex] * eleKof[KofIndex + 3]) - (eleKof[KofIndex + 1] * eleKof[KofIndex + 2]));
-            KofIndex += 4;
-
-        }
-
-    }
+		for (j = 0; j < 3; j++) {
+			arrayKof[i][j] = pow(-1, (i + j)) * ((eleKof[KofIndex] * eleKof[KofIndex + 3]) - (eleKof[KofIndex + 1] * eleKof[KofIndex + 2]));
+			KofIndex += 4;
+		}
+    	}
     
-    // Mencari matriks adjoin.
-    int arrayAdj[3][3];
+	// Mencari matriks adjoin.
+	int arrayAdj[3][3];
     
-    for (i = 0; i < 3; i++) {
-    	for (j = 0; j < 3; j++) {
-    		arrayAdj[j][i] = arrayKof[i][j];
+    	for (i = 0; i < 3; i++) {
+    		for (j = 0; j < 3; j++) {
+    			arrayAdj[j][i] = arrayKof[i][j];
 		}
 	}
 	
